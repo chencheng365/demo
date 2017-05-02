@@ -1,3 +1,6 @@
+https://chencheng365.github.io/demo/Loading.html
+https://chencheng365.github.io/resume/
+
 https://segmentfault.com/a/1190000007544336
 http://www.bootcss.com/p/git-guide/
 http://marklodato.github.io/visual-git-guide/index-zh-cn.html
