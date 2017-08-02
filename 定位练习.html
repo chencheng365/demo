@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>position</title>
+</head>
+<style>
+/*	figure{
+		width:512px;
+	}
+	figure img {
+		display:block;
+	}
+	figcaption{
+		position:relative;
+		top: -28px;
+		background:rgba(0,0,0,0.3);
+		color: #fff;
+		font-size: 14px;
+		line-height: 2;
+		padding: 0 1em;
+	}*/
+
+
+	figure{
+		width:512px;
+		position:relative;
+	}
+	figure img {
+		display:block;
+	}
+/*	figcaption{
+		position:absolute;
+		bottom: 0;
+		width: 100%;
+		background:rgba(0,0,0,0.3);
+		color: #fff;
+		font-size: 14px;
+		line-height: 2;
+		padding: 0 1em;
+		box-sizing: border-box;
+	}*/
+	figcaption{
+		position:absolute;
+		bottom: 0;
+		background:rgba(0,0,0,0.3);
+		color: #fff;
+		font-size: 14px;
+		line-height: 2;
+		padding: 0 1em;
+		/*控制不超出*/
+		left: 0;
+		right: 0;
+	}
+</style>
+<body>
+<figure>
+	<img src="http://images2015.cnblogs.com/blog/561794/201603/561794-20160310002800647-50077395.jpg" width="512"/>
+	<figcaption>图片标题</figcaption>
+</figure>
+<p>其他文本内容。</p>
+<div id="fz">我是div标签</div> 
+<p>我是p标签11</p>
+<p>我是p标签22</p>
+<p>我是p标签33</p>
+<p>我是p标签44</p>
+<br>
+<br>
+<br>
+<br>
+	<p class="nm_p" title="欢迎访问脚本之家图书馆" >欢迎访问脚本之家图书馆</p> 
+	<ul class="nm_ul"> 
+		<li title='PHP魔法'>简单易懂的PHP魔法</li> 
+		<li title='C魔法'>简单易懂的C魔法</li> 
+		<li title='JavaScript魔法'>简单易懂的JavaScript魔法</li> 
+		<li title='JQuery'>简单易懂的JQuery魔法</li> 
+	</ul> 
+	<div class="test ass" id="haha"><p>hello，你好！</p></div>
+</body>
+<script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.js"></script>
+<script>
+$("#haha").attr('class','umwh1 confirm')
+$('div').append( $('p').clone(true) )
+
+$(function(){ 
+	// $(".nm_ul li").click(function(){ 
+	// 	// $(this).clone(true).appendTo(".nm_ul");
+	// 	$(this).clone(true).appendTo('#fz'); // 复制当前点击的节点，并将它追加到<div>元素 
+	// });
+	// $("p").click(function(){
+	// 	$(this).remove();
+	// }); 
+	console.log($(".test").prop("outerHTML")) 
+}); 
+
+
+
+	var myApp={
+	"131000": {
+		"cmsinfo": [{
+			"columnId": 2,
+			"columnName": "政务新闻",
+			"columnIcon": ""
+		}, {
+			"columnId": 45,
+			"columnName": "健康知识",
+			"columnIcon": ""
+		}],
+		"appinfos": [{
+			"appId": "kfpt100025",
+			"appPic": "/avatar/2016-10/1477467544387.png",
+			"appName": "大厂智慧医疗"
+		}, {
+			"appId": "kfpt100023",
+			"appPic": "/avatar/2016-9/1474950984326.jpg",
+			"appName": "廊坊市人民医院"
+		}]
+	},
+	"130600": {
+		"cmsinfo": [{
+			"columnId": 12,
+			"columnName": "保定政务新闻",
+			"columnIcon": ""
+		}, {
+			"columnId": 145,
+			"columnName": "保定健康知识",
+			"columnIcon": ""
+		}],
+		"appinfos": [{
+			"appId": "kfpt100012",
+			"appPic": "/avatar/2016-9/1472784581975.jpg",
+			"appName": "癫痫管家"
+		}, {
+			"appId": "kfpt100014",
+			"appPic": "/avatar/2016-9/1473789410805.jpg",
+			"appName": "廊坊献血"
+		}]
+	}
+}
+
+console.log(myApp[130600].appinfos)
+
+	// var myAppTemplate="";
+ //    for (var p = 0; p < sel_cmsinfo.length; p++) {
+	//     myAppTemplate+='<div class="ub ub-ver box-s uba umar-a uc-a1 sc-border cmsinfo" name="'+sel_cmsinfo[p].columnId+'">'+
+	//             '<div class="ub ub-ac ub-pc uc-a-ele1 pad-tb3">'+
+	//                 '<div class="ub ub-img eleIcon18 uwh-ele3"></div>'+
+	//             '</div>'+
+	//             '<div class="ub uh2 ub-ac ub-pc sc-text ulev-4 conLine2">'+sel_cmsinfo[p].columnName+'</div>'+
+	//             '<div class="iconPosi uhide">'+
+	//                    '<div class="umwh1 add" id="'+sel_cmsinfo[p].columnId+'"></div>'+
+	//             '</div>'+
+	//             '</div>';
+
+ //    };
+
+ //        for (var f = 0; f < sel_appinfos.length; f++) {
+ //             myAppTemplate+='<div class="ub ub-ver box-s uba umar-a uc-a1 sc-border appinfos" name="'+sel_appinfos[f].appId+'">'+
+ //                '<div class="ub ub-ac ub-pc uc-a-ele1 pad-tb3">'+
+ //                    '<div class="ub ub-img eleIcon18 uwh-ele3" style="background-image: url('+picUrl+sel_appinfos[f].appPic+')"></div>'+
+ //                '</div>'+
+ //                '<div class="ub uh2 ub-ac ub-pc sc-text ulev-4 conLine2">'+sel_appinfos[f].appName+'</div>'+
+ //                '<div class="iconPosi uhide">'+
+ //                      '<div class="umwh1 add" id="'+sel_appinfos[f].appId+'"></div>'+
+ //                '</div>'+
+ //                '</div>'
+ //        };
+       
+    
+
+</script>
+</html>

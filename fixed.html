@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>fixed</title>
+</head>
+<style>
+	nav {
+		position: fixed;
+		line-height: 2;
+		background: rgba(0,0,0,0.3);
+		width: 100%;
+	}
+	nav a {
+		padding: 0 1em;
+		color: rgba(255,255,255,0.7);
+	}
+	nav a:hover{
+		color: #fff;
+	}
+	.go-top{
+		position: fixed;
+		right: 1em;	
+		bottom: 1em;
+		color: #fff;
+	}
+	body{
+		margin: 0;
+		font-size: 14px;
+		/*放大1.5倍*/
+		zoom: 1.5;
+	}
+	a{
+		color: #fff;
+		text-decoration: none;
+	}
+	section{
+		height: 66.6667vh;
+		/*height: 100vh;*/
+		color: #fff;
+		text-align: center;
+		font-size: 5em;
+		line-height: 66vh;
+		/*line-height:100vh;*/
+	}
+	section:nth-child(1){
+		background: #F44336;
+	}
+	section:nth-child(2){
+		background: #3F51B5;
+	}
+	section:nth-child(3){
+		background: #FFC107;
+	}
+	section:nth-child(4){
+		background: #607D8B;
+	}
+	section:nth-child(5){
+		background: #4CAF50;
+	}
+</style>
+<body>
+<!-- viewport  -->
+	<nav>
+		<a href="#">首页</a>
+		<a href="#">导航1</a>
+		<a href="#">导航1</a>
+	</nav>
+	<main>
+		<section>1</section>
+		<section>2</section>
+		<section>3</section>
+		<section>4</section>
+		<section>5</section>
+	</main>
+	<a href="#" class="go-top">返回顶部</a>
+</body>
+</html>

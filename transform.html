@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>css 动画</title>
+</head>
+<style>
+body{
+	padding: 70px
+}
+div {
+    width: 200px;
+    height: 100px;
+    background-color: yellow;
+        
+}
+
+.demo_transform1 {
+	-webkit-transform: rotate(7deg);
+}
+
+.demo_transform2 {
+	-webkit-transform:skew(20deg);
+	-moz-transform:skew(20deg)
+}
+
+.demo_transform3{-webkit-transform:scale(1.5);-moz-transform:scale(1.5)}
+
+.demo_transform4{-webkit-transform:translate(120px,0);-moz-transform:translate(120px,0)}
+
+.demo_transform5{-webkit-transition:all 1s ease-in-out;-moz-transition:all 1s ease-in-out}
+
+.demo_transform5:hover{-webkit-transform:rotate(360deg) skew(-20deg) scale(3.0) translate(100px,0)}
+
+
+
+#timings-demo {border: 1px solid #ccc;padding: 10px;height: 400px;width: 400px;}  
+.box {width: 100px;height: 50px;line-height: 50px;text-align: center;color: #fff;margin-bottom: 10px;  
+    -webkit-border-radius: 5px;  
+    -webkit-box-shadow: inset 0 0 5px rgba(102, 153, 0,0.5);  
+}  
+/*逐渐变慢效果：*/          
+#ease {background: #f36;  
+    -webkit-transition: all 5s ease 0.3s;  
+}  
+/*加速效果：*/  
+#ease-in {background: #369;  
+     /*-webkit-transition: all 3s ease-in 0.5s;  */
+     -webkit-transition: all 300ms ease-in 100ms
+}  
+/*减速效果：*/  
+#ease-out {background: #636;   
+    -webkit-transition: all 5s ease-out 0s;  
+}  
+/*先加速然后减速效果：*/  
+#ease-in-out {background: #3e6;  
+    -webkit-transition: all 1s ease-in-out 2s;  
+}  
+/*匀速效果：*/  
+#linear { background: #999;  
+    -webkit-transition: all 6s linear 0s;  
+}  
+/*该值允许你去自定义一个时间曲线效果：*/  
+#cubic-bezier {background: #6d6;  
+    -webkit-transition: all 4s cubic-bezier 1s;  
+}  
+/*hover状态下或单击click按钮后box产生属性变化*/  
+#timings-demo:hover .box {  
+    -webkit-transform: rotate(360deg) scale(1.2);  
+    -webkit-border-radius: 25px;  
+} 
+
+
+ul,li{
+	list-style: none;
+}
+
+li{
+	width: 33%;
+    margin-right: 0.3%;
+    float: left;
+    position: relative;
+    text-align: center;
+    line-height: 
+}
+
+</style>
+
+<body>
+    <div class="demo_transform1">旋转</div>
+    <br>
+    <div class="demo_transform2">倾斜</div>
+    <br><br>
+    <div class="demo_transform3">放大</div>
+    <br><br>
+    <div class="demo_transform4">变动，位移</div>
+    <br>
+    <div class="demo_transform5">变动，位移</div>
+    <br><br>
+
+    <div id="timings-demo">  
+    <div id="ease" class="box">Ease</div>  
+    <div id="ease-in" class="box">Ease-in</div>  
+    <div id="ease-out" class="box">Ease-out</div>  
+    <div id="ease-in-out" class="box">Ease-in-out</div>  
+    <div id="linear" class="box">Linear</div>  
+    <div id="cubic-bezier" class="box">Cubic-bezier</div>  
+</div> 
+
+
+
+<br>
+<br>
+<br>
+<br>
+<br>
+
+<ul>
+	<li style="background-color:red">111</li>
+	<li style="background-color:blue">222</li>
+	<li style="background-color:green">333</li>
+	<li>444</li>
+	<li>555</li>
+	<li>666</li>
+	<li>777</li>
+</ul>
+
+</body>
+
+
+<script>
+
+
+var compare = function (prop) {
+    return function (obj1, obj2) {
+        var val1 = obj1[prop];
+        var val2 = obj2[prop];
+        if (!isNaN(Number(val1)) && !isNaN(Number(val2))) {
+            val1 = Number(val1);
+            val2 = Number(val2);
+        }
+        if (val1 < val2) {
+            return -1;
+        } else if (val1 > val2) {
+            return 1;
+        } else {
+            return 0;
+        }            
+    } 
+}
+
+	
+var resp = {
+  "status": 0,
+  "msg": "",
+  "type": "string",
+  "data": {
+    "list": [
+      {
+        "$mid": "managerInfo",
+        "managerId": 108,
+        "loginName": "zmmtest1",
+        "loginPwd": "50e2dcf72fe07707b15e2770f175ca9d",
+        "roleId": 21,
+        "roleName": "测试张添加角色",
+        "managerName": "mm1",
+        "phone": "",
+        "email": "",
+        "deptId": 26,
+        "deptName": "测试添加部门",
+        "cTime": "2016-12-10T03:08:32.000Z",
+        "mTime": "2016-12-10T03:08:32.000Z",
+        "isDeleted": 0,
+        "parentManagerId": 1,
+        "areaDataId": 0,
+        "roleInfo": {},
+        "areaName": "保定市",
+        "areaNamePY": "bds"
+      },
+      {
+        "$mid": "managerInfo",
+        "managerId": 106,
+        "loginName": "zmmtest",
+        "loginPwd": "ca489128a8f7ca5d",
+        "roleId": 1,
+        "roleName": "超级管理员",
+        "managerName": "mm",
+        "phone": "",
+        "email": "",
+        "deptId": 9,
+        "deptName": "测试部门",
+        "cTime": "2016-12-10T02:57:18.000Z",
+        "mTime": "2016-12-10T02:57:18.000Z",
+        "isDeleted": 0,
+        "parentManagerId": 1,
+        "areaDataId": 0,
+        "roleInfo": {},
+        "areaName": "保定市",
+        "areaNamePY": "bds"
+      },
+      {
+        "$mid": "managerInfo",
+        "managerId": 104,
+        "loginName": "fq_account1",
+        "loginPwd": "1bbe5721d058853766c557a848ee6c87",
+        "roleId": 15,
+        "roleName": "fq_role1",
+        "managerName": "fq_account1",
+        "phone": "13811712727",
+        "email": "vanlhome@126.com",
+        "deptId": 22,
+        "deptName": "fq_dept1",
+        "cTime": "2016-12-09T06:14:49.000Z",
+        "mTime": "2016-12-09T06:14:49.000Z",
+        "isDeleted": 0,
+        "parentManagerId": 1,
+        "areaDataId": 0,
+        "roleInfo": {},
+        "areaName": "丰台区",
+        "areaNamePY": "ftq"
+      },
+      {
+        "$mid": "managerInfo",
+        "managerId": 103,
+        "loginName": "fq_account5",
+        "loginPwd": "1bbe5721d0588537548ab681e0750895",
+        "roleId": 15,
+        "roleName": "fq_role1",
+        "managerName": "fq_account5",
+        "phone": "13811712727",
+        "email": "vanlhome@icloud.com",
+        "deptId": 22,
+        "deptName": "fq_dept1",
+        "cTime": "2016-12-09T02:15:48.000Z",
+        "mTime": "2016-12-09T02:15:48.000Z",
+        "isDeleted": 0,
+        "parentManagerId": 1,
+        "areaDataId": 0,
+        "roleInfo": {},
+        "areaName": "朝阳区",
+        "areaNamePY": "zyq"
+      }
+    ],
+    "totalNum": 4
+  }
+}
+var areaObj = {};
+var keyName = [];
+var areaArr = [];
+var arr = resp.data.list;
+//对接口数据进行排序（按字母顺序）
+var sortNewArr= arr.sort(compare("areaNamePY"));
+
+for(var k = 0, len = sortNewArr.length; k < len; k++){
+    var areaName = sortNewArr[k].areaName;
+    var managerId = sortNewArr[k].managerId;
+    var areaNamePY = sortNewArr[k].areaNamePY;
+    var letter = areaNamePY.charAt(0);
+    var capital = letter.toUpperCase();
+	areaArr.push({
+		"letter":capital,
+		"area":[{
+			 		"managerId": managerId,
+					"areaName": areaName,
+					"areaNamePY": areaNamePY
+			}]
+	})	
+}
+
+console.log(JSON.stringify(areaArr))
+
+// for(var i = 0; i < sortNewArr.length; i++){
+//     var areaName = sortNewArr[i].areaName;
+//     var managerId = sortNewArr[i].managerId;
+//     var areaNamePY = sortNewArr[i].areaNamePY;
+//     var zhi = areaNamePY.charAt(0);
+
+//     if(!areaObj.hasOwnProperty(zhi)){
+//        	keyName.push(zhi);
+//        	areaObj[zhi]=[{
+// 		 		"managerId": managerId,
+// 				"areaName": areaName,
+// 				"areaNamePY": areaNamePY
+// 		}]
+//     }else{
+//     	var obj = areaObj[zhi];
+//     	var isok=false;
+//     	for (var i = 0; i < obj.length; i++) {
+//     		if(obj[i].areaName==areaName){
+// 				isok=true;
+//     		}
+//     	}
+// 	    if(!isok){
+// 			areaObj[zhi].push(
+// 				{
+// 				   "managerId": managerId,
+// 				   "areaName": areaName,
+// 				   "areaNamePY": areaNamePY
+// 				}
+// 			)
+// 		}
+//     }  
+// }
+// console.log(areaObj)
+// console.log(keyName)
+
+    // if(!areaArr[arr[i].areaName]) {
+    //     areaArr.push(arr[i].areaName)
+    // }
+
+
+// {
+// 		"A": [{
+// 			"managerId": 108,
+// 			"areaName": "安康",
+// 			"areaNamePY": "ak"
+// 		}, {
+// 			"areaName": "鞍山",
+// 			"areaNamePY": "as"
+// 		}],
+//   		"B": [{
+//   			"managerId": 109,
+// 			"areaName": "北京",
+// 			"areaNamePY": "bj"
+// 		}, {
+// 			"areaName": "保定",
+// 			"areaNamePY": "bd"
+// 		}]
+// }
+
+
+
+
+
+
+
+// var compare = function (prop) {
+//     return function (obj1, obj2) {
+//         var val1 = obj1[prop];
+//         var val2 = obj2[prop];
+//         if (!isNaN(Number(val1)) && !isNaN(Number(val2))) {
+//             val1 = Number(val1);
+//             val2 = Number(val2);
+//         }
+//         if (val1 < val2) {
+//             return -1;
+//         } else if (val1 > val2) {
+//             return 1;
+//         } else {
+//             return 0;
+//         }            
+//     } 
+// }
+
+// arr.sort(compare("areaNamePY"))
+
+
+
+// [
+// 	{"index":"a","area":[{"areaName": "保定","areaNamePY": "bd"},{"areaName": "保定","areaNamePY": "bd"}]},	
+// 	{"index":"b","area":[{"areaName": "保定","areaNamePY": "bd"},{"areaName": "保定","areaNamePY": "bd"}]}
+// ]
+</script>
+</html>

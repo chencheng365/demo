@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>每行的项目数固定，会自动分行</title>
+</head>
+<style>
+#main {
+    width: 100%;
+    border: 1px solid #c3c3c3;
+    display: -webkit-flex; /* Safari */
+    -webkit-flex-wrap: wrap; /* Safari 6.1+ */
+    display: flex;
+    flex-wrap: wrap;
+}
+
+#main div {
+    width: 20%;
+    height: 250px;
+}
+</style>
+<body>
+	<div id="main">
+	  <div style="background-color:coral;">A</div>
+	  <div style="background-color:lightblue;">B</div>
+	  <div style="background-color:khaki;">C</div>
+	  <div style="background-color:pink;">D</div>
+	  <div style="background-color:lightgrey;">E</div>
+	  <div style="background-color:lightgreen;">F</div>
+	  <div style="background-color:red;">G</div>
+	</div>
+</body>
+</html>

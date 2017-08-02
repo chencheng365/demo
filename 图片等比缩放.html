@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>理解CSS3中的background－size(对响应性图片等比例缩放)</title>
+</head>
+<style>
+  .bsize1 {
+     width:400px;
+     height:200px;
+     background: url("http://images2015.cnblogs.com/blog/561794/201603/561794-20160310002800647-50077395.jpg") no-repeat;
+     border:1px solid red;
+     overflow: hidden;
+  }
+  .bsize2 {
+         background-size: 400px 200px;
+  }
+  .bsize3 {
+         background-size: 400px;
+ }
+
+.bsize4 {
+        background-size:100% 100%;
+  }
+  .bsize5 {
+         background-size: 100%;
+  }
+
+
+  .cover {
+        background-size:cover;
+ }
+ .contain {
+        background-size:contain;
+  }
+
+
+  .cover-paddingTop {
+       position: relative;
+       padding-top: 50%; 
+       overflow: hidden;
+  }
+ .cover-paddingTop img{
+      width:100%;
+      position: absolute;
+      top:0;
+  }
+
+
+  .column{
+        max-width: 1024px;
+ }
+ .figure {
+         padding-top:30.85%; /* 316 / 1024 */
+         background: url("http://images2015.cnblogs.com/blog/561794/201603/561794-20160310002800647-50077395.jpg") no-repeat;
+          background-size:cover;
+          background-position:center;
+    }
+.demo_transform3{-webkit-transform:scale(4);-moz-transform:scale(4)}
+</style>
+<body>
+
+<pre>
+background-size: 可以设定背景图像的尺寸，该属性是css3中的，在移动端使用的地方很多，比如最常见的地方在做响应性布局的时候，比如之前做的项目中有轮播图片，为了自适应不同大小分辨率的图片，
+我门需要使用css3中的媒体查询来针对不同的分辨率设置宽度和高度，虽然这种方式是可以解决问题，但是解决方式并不是太好，并且很繁琐，当然我门也想过直接使用百分比设置图片的大小，
+比如width(宽度): 100%，height(高度)：100%; 但是设置图片等高度100%的时候并不生效，图片没有显示出来，因为没有设置具体的高度值，浏览器渲染的时候并没有高度，
+因此当时解决的方法是使用css3中的媒体查询真对不同的分辨率等比例缩放不同的height(高度)；今天我门重新来学习下background-size 这个具体的属性值，并且使用新的方法来解决针对响应性布局的背景图片自适应。	     
+
+浏览器支持的程度：IE9+, Firefox4+, opera, chrome, safari5+;
+
+基本语法：background-size: length | percentage | cover | contain; 
+
+一：length
+
+    该属性值是设置背景图像的宽度和高度的，第一个值是宽度，第二个值是设置高度的。如果只设置第一个值，那么第二个值会自动转换为 “auto”;
+
+二：percentage
+
+     该属性是以父元素的百分比来设置图片的宽度和高度的，第一个值是宽度，第二个值是高度。如果只设置一个值，那么第二个值会被设置为 “auto”;
+
+三：cover
+
+      把背景图像扩展至足够大，以使背景图像完全覆盖背景区域。
+
+四：contain
+
+      把图像扩展至最大尺寸，以使宽度和高度 完全适应内容区域。 
+</pre>
+
+<h3>原图</h3>
+<div class="images"><img src="http://images2015.cnblogs.com/blog/561794/201603/561794-20160310002800647-50077395.jpg" width="100%"/></div>
+
+<br>
+
+<h3>1.固定宽度400px和高度200px后的图片</h3>
+<div class="bsize1"></div>
+
+<br>
+
+<h3>2.固定宽度400px和高度200px－使用background－size:400px 200px缩放设置</h3>
+<div class="bsize1 bsize2"></div>
+
+<br>
+
+<h3>3.固定宽度400px和高度200px－使用background-size:400px;的缩放设置</h3>
+<div class="bsize1 bsize3"></div>
+
+<br>
+
+<h3>4.固定宽度400px和高度200px－使用background-size:100% 100%的缩放设置</h3>
+<div class="bsize1 bsize4"></div>
+
+<br>
+
+<h3>5.固定宽度400px和高度200px－使用background-size:100%的缩放设置</h3>
+<div class="bsize1 bsize5"></div>
+
+<br>
+
+<h3>6.使用属性cover来设置背景图片</h3>
+<div class="bsize1 cover"></div>
+
+<br>
+
+<h3>7.使用属性contain来设置背景图片</h3>
+<div class="bsize1 contain"></div>
+
+<br>
+
+<!-- 下面我门使用图片来做，不使用背景图片等情况下，给图片设置属性 width ＝ 100%的话，它的高度会自适应的 -->
+<h3>8.给图片设置属性宽度为100%的情况下，可自适应图片</h3>
+<div class="bsize-padding"><img src="http://images2015.cnblogs.com/blog/561794/201603/561794-20160310002800647-50077395.jpg" width="100%"/></div>
+
+<br>
+
+<!--  使用另一种方式来解决图片自适应的问题－－图片自适应问题，图片宽度设置100%，页面加载时会存在高度塌陷的问题，可以使用padding－top来设置百分比值来实现自适应 padding-top = (图片的高度/图片的宽度)*100； -->
+
+<h3>9.图片自适应问题，图片宽度设置100%，页面加载时会存在高度塌陷的问题</h3>
+<p>可以使用padding－top来设置百分比值来实现自适应 padding-top = (图片的高度/图片的宽度)*100</p>
+<div class="cover-paddingTop">
+      <img src="http://images2015.cnblogs.com/blog/561794/201603/561794-20160310002800647-50077395.jpg"/>
+</div>
+
+<br>
+
+<!-- 我门都知道，处理在响应性布局的时候，背景图片都是等比例缩放，比如上面的使用图片的情况，使用<img /> 引入的图片的话，那么设置她们的width属性为100%；<img src=”” width=”100%”/> 的话，高度就会等比例缩放，这是图片，但是如果是背景图片呢？我门之前的项目中的常见的做法是根据css3媒体查询的方法来做的，根据不同手机的分辨率等不同，来等比例缩放背景图的高度，虽然这种方式是可以解决问题的，但是这种通过人肉的方式来进行设置并不好，也很繁琐，今天我门来学习使用padding－top这么一个属性来设置了；
+
+实现的基本原理：将使用到保持元素的宽高比的技巧，为元素添加垂直方向的padding-top的值，使用百分比的形式，这个值是相对于元素的宽而定的，比如我上面的一张图片的宽度是1024px，高度为316px；那么现在的
+
+padding-top = （高度 / 宽度 ）＊ 100% ＝ （316 ／ 1024）＊ 100% ＝  30.85%;
+
+但是仅仅对图片高度和宽度缩放的放还不够，我门还必须添加 background-size:cover, 使这个属性让背景铺满元素的，但是IE8及以下不支持该属性，因此为了兼容IE下面的浏览器，我门还需要再加一个属性 background-position: center ; 同时我门也要保证 图片的宽度最大等于父容器的宽度 -->
+
+<h3>10.使用padding-top实现响应性图片(图片的宽度是1024px，高度是316px)</h3>
+<div class="column">
+   <div class="figure"></div>
+</div>
+
+<br>
+<br>
+<br>
+
+<div style="width:220px;height:200px"><img src="http://images2015.cnblogs.com/blog/561794/201603/561794-20160310002800647-50077395.jpg" width="100%"/></div>
+
+<br>
+
+<img src="./moren1.png" alt="">
+<br>
+<br>
+<br>
+<div style="width:100px;height:150px">
+	<img src="./moren1.png" alt="" width="100%" height="100%">
+</div>
+<br>
+<br>
+<br>
+<div style="width:420px;height:50px"><img src="http://175.25.242.86:8001/avatar/2016-11/1478009000280.jpg" /></div>
+</body>
+</html>
