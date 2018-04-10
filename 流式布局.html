@@ -18,6 +18,23 @@
     width: 20%;
     height: 250px;
 }
+
+.parent {
+  width: 200px;
+  height: 150px;
+  background-color: black;
+  display: flex;
+  flex-flow: row wrap;
+  align-content: flex-start;
+}
+
+.child {
+  box-sizing: border-box;
+  background-color: white;
+  flex: 0 0 25%;
+  height: 50px;
+  border: 1px solid red;
+}
 </style>
 <body>
 	<div id="main">
@@ -28,6 +45,20 @@
 	  <div style="background-color:lightgrey;">E</div>
 	  <div style="background-color:lightgreen;">F</div>
 	  <div style="background-color:red;">G</div>
+	</div>
+	<br/>
+	<hr>
+	<br/>
+	<div class="parent">
+      <div class="child"></div>
+      <div class="child"></div>
+      <div class="child"></div>
+      <div class="child"></div>
+      <div class="child"></div>
+      <div class="child"></div>
+      <div class="child"></div>
+      <div class="child"></div>
+      <div class="child"></div>
 	</div>
 </body>
 </html>
