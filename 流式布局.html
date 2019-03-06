@@ -35,30 +35,76 @@
   height: 50px;
   border: 1px solid red;
 }
+
+/* 3 */
+.div {
+  width: 350px;
+  line-height: 30px;
+  text-align: justify;
+  border: #eee 1px solid;
+  padding: 10px;
+  margin: 50px;
+}
+.div:after{
+  content: '';
+  display:inline-block;
+  width:100%;
+  height:0;
+  overflow:hidden;
+}
+.inlin-block{
+  display: inline-block;
+  min-width: 90px;
+  border: #eee 1px solid;
+  line-height: 35px;
+  margin-bottom: 5px;
+  text-align: center;
+}
 </style>
 <body>
-	<div id="main">
-	  <div style="background-color:coral;">A</div>
-	  <div style="background-color:lightblue;">B</div>
-	  <div style="background-color:khaki;">C</div>
-	  <div style="background-color:pink;">D</div>
-	  <div style="background-color:lightgrey;">E</div>
-	  <div style="background-color:lightgreen;">F</div>
-	  <div style="background-color:red;">G</div>
-	</div>
+<div id="main">
+  <div style="background-color:coral;">A</div>
+  <div style="background-color:lightblue;">B</div>
+  <div style="background-color:khaki;">C</div>
+  <div style="background-color:pink;">D</div>
+  <div style="background-color:lightgrey;">E</div>
+  <div style="background-color:lightgreen;">F</div>
+  <div style="background-color:red;">G</div>
+</div>
+
 	<br/>
 	<hr>
-	<br/>
-	<div class="parent">
-      <div class="child"></div>
-      <div class="child"></div>
-      <div class="child"></div>
-      <div class="child"></div>
-      <div class="child"></div>
-      <div class="child"></div>
-      <div class="child"></div>
-      <div class="child"></div>
-      <div class="child"></div>
-	</div>
+  <br/>
+  
+<div class="parent">
+  <div class="child"></div>
+  <div class="child"></div>
+  <div class="child"></div>
+  <div class="child"></div>
+  <div class="child"></div>
+  <div class="child"></div>
+  <div class="child"></div>
+  <div class="child"></div>
+  <div class="child"></div>
+</div>
+
+  <br/>
+	<hr>
+  <br/>
+  
+<div class="div">
+  <div class="inlin-block">90</div>
+  <div class="inlin-block">90</div>
+  <div class="inlin-block">90</div>
+  <div class="inlin-block">90</div>
+  <div class="inlin-block">90</div>
+  <div class="inlin-block">90</div>
+  <div class="inlin-block">90</div>
+  <div class="inlin-block">90</div>
+  <div class="inlin-block">90</div>
+  <div class="inlin-block">90</div>
+  <div class="inlin-block">90</div>
+</div> 
+
 </body>
 </html>
