@@ -9,4 +9,17 @@
 <body>
     <audio autoplay="autoplay" src="https://music.163.com/song/media/outer/url?id=574566207.mp3" controls="controls" loop="loop" preload id="auto"></audio>
 </body>
+<script>
+    window.onload = function() {
+        window.addEventListener('message', function (e) {
+            console.log(e)
+            alert(e);
+            alert(JSON.stringify(e));
+            alert(e.origin);
+            // if (e.origin !== "http://www.42du.cn") {
+            //     return;
+            // }
+        });
+    }
+</script>
 </html>
