@@ -11,14 +11,9 @@
 </body>
 <script>
     window.onload = function() {
+        console.log('onload------end')
         window.addEventListener('message', function (e) {
             console.log(e)
-            alert(e);
-            alert(JSON.stringify(e));
-            alert(e.origin);
-            // if (e.origin !== "http://www.42du.cn") {
-            //     return;
-            // }
         });
     }
 </script>
